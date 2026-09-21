@@ -2,7 +2,7 @@
 google-services.json
 *.keystore
 *.jks
-local.properties
+local.properties 
 .env
 .env.local
 secrets.properties
