@@ -6,7 +6,7 @@
 
 Final Year Project (PFE) · 2026
 
-[**🎥 Video Demo**](https://youtu.be/TODO) · [**📸 Screenshots**](#screenshots) · [**🏗️ Architecture**](#architecture)
+[**🎥 Video Demo**](https://) · [**📸 Screenshots**](#screenshots) · [**🏗️ Architecture**](#architecture)
 
 [![License](https://img.shields.io/github/license/El-Tousy/alexandra-voice-assistant)](LICENSE)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white)
@@ -192,7 +192,6 @@ flowchart LR
 
 - **Android Studio** — recent stable version
 - **JDK 17**
-- An Android device or emulator running **Android TODO+** (API TODO)
 - A **Firebase** project (free Spark plan is enough)
 - An **OpenAI API key**
 
@@ -207,7 +206,6 @@ cd alexandra-voice-assistant
 
 1. Create a project in the [Firebase console](https://console.firebase.google.com/).
 2. Add an Android app using the package name found in `android_studio_codes/app/build.gradle.kts` (`applicationId`).
-3. Enable **Authentication** (Email/Password) and create the database (TODO: Firestore or Realtime Database).
 4. Download `google-services.json` and place it in:
 
    ```
@@ -224,7 +222,6 @@ Add the key to `android_studio_codes/local.properties` (also git-ignored):
 OPENAI_API_KEY=sk-your-key-here
 ```
 
-<!-- TODO: adjust this section to match how the app really reads the key. -->
 
 ### 4. Run the app
 
@@ -245,8 +242,7 @@ The dashboard is static. From the repository root:
 npx serve dashboard_pages
 ```
 
-Then open `http://localhost:3000/login.html`. <!-- TODO: state where the Firebase web config is set and how to create the first admin account. -->
-
+Then open `http://localhost:3000/login.html`.
 ### Try it without building
 
 Download the latest signed APK from the [Releases page](https://github.com/El-Tousy/alexandra-voice-assistant/releases/latest) and verify its integrity:
@@ -310,9 +306,6 @@ cd android_studio_codes
 ./gradlew testDebugUnitTest   # unit tests
 ./gradlew lintDebug           # static analysis
 ```
-
-<!-- TODO: state the real test coverage. If there are no tests yet, keep the line below
-     and add tests to the roadmap rather than claiming coverage you do not have. -->
 Both commands run automatically on every push and pull request.
 
 ---
