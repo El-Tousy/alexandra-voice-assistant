@@ -6,7 +6,7 @@
 
 Final Year Project (PFE) · 2026
 
-[**🎥 Video Demo**](https://) · [**📸 Screenshots**](#screenshots) · [**🏗️ Architecture**](#architecture)
+[**🎥 Video Demo**](https://github.com/El-Tousy/alexandra-voice-assistant/tree/main/Video%20Demo) · [**📸 Screenshots**](#screenshots) · [**🏗️ Architecture**](#architecture)
 
 [![License](https://img.shields.io/github/license/El-Tousy/alexandra-voice-assistant)](LICENSE)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white)
