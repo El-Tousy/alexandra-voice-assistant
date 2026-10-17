@@ -15,7 +15,7 @@ Abschlussprojekt (PFE) · 2026
 ![OpenAI](https://img.shields.io/badge/OpenAI_API-412991?style=flat&logo=openai&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 
-[🇬🇧 English](README.de.md) · [🇩🇪 Deutsch](README.md)
+[🇬🇧 English](README.en.md) · [🇩🇪 Deutsch](README.md)
 
 </div>
 
