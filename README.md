@@ -1,12 +1,12 @@
 <div align="center">
 
-# Alexandra — AI Voice Assistant
+# Alexandra — KI-Sprachassistent
 
-**A native Android voice assistant that listens, thinks with the OpenAI API and answers out loud — paired with a web dashboard for user management.**
+**Ein nativer Android-Sprachassistent, der zuhört, mit der OpenAI-API nachdenkt und laut antwortet — ergänzt durch ein Web-Dashboard zur Benutzerverwaltung.**
 
-Final Year Project (PFE) · 2026
+Abschlussprojekt (PFE) · 2026
 
-[**🎥 Video Demo**](https://github.com/El-Tousy/alexandra-voice-assistant/tree/main/Video%20Demo) · [**📸 Screenshots**](#screenshots) · [**🏗️ Architecture**](#architecture)
+[**🎥 Video-Demo**](https://github.com/El-Tousy/alexandra-voice-assistant/tree/main/Video%20Demo) · [**📸 Screenshots**](#screenshots) · [**🏗️ Architektur**](#architektur)
 
 [![License](https://img.shields.io/github/license/El-Tousy/alexandra-voice-assistant)](LICENSE)
 ![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=flat&logo=kotlin&logoColor=white)
@@ -15,237 +15,237 @@ Final Year Project (PFE) · 2026
 ![OpenAI](https://img.shields.io/badge/OpenAI_API-412991?style=flat&logo=openai&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/CI%2FCD-GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 
-[🇬🇧 English](README.md) · [🇩🇪 Deutsch](README.de.md)
+[🇬🇧 English](README.de.md) · [🇩🇪 Deutsch](README.md)
 
 </div>
 
 <p align="center">
-  <img src="docs/demo.gif" alt="Alexandra demo" width="280" />
+  <img src="docs/demo.gif" alt="Alexandra Demo" width="280" />
 </p>
 
 ---
 
-## Table of Contents
+## Inhaltsverzeichnis
 
-- [Overview](#overview)
-- [What this project demonstrates](#what-this-project-demonstrates)
-- [Features](#features)
+- [Überblick](#überblick)
+- [Was dieses Projekt zeigt](#was-dieses-projekt-zeigt)
+- [Funktionen](#funktionen)
 - [Screenshots](#screenshots)
-- [Architecture](#architecture)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-- [Configuration](#configuration)
-- [Testing](#testing)
-- [Project Structure](#project-structure)
-- [Security](#security)
-- [Technical Challenges and Learnings](#technical-challenges-and-learnings)
+- [Architektur](#architektur)
+- [Tech-Stack](#tech-stack)
+- [Erste Schritte](#erste-schritte)
+- [Konfiguration](#konfiguration)
+- [Tests](#tests)
+- [Projektstruktur](#projektstruktur)
+- [Sicherheit](#sicherheit)
+- [Technische Herausforderungen und Erkenntnisse](#technische-herausforderungen-und-erkenntnisse)
 - [Roadmap](#roadmap)
-- [Author](#author)
-- [License](#license)
+- [Autor](#autor)
+- [Lizenz](#lizenz)
 
 ---
 
-## Overview
+## Überblick
 
-Alexandra is an end-to-end voice assistant. A user speaks to the Android app, the speech is transcribed on the device, the text is sent to the OpenAI API, and the answer is displayed and read back aloud. Conversations are stored per user so they can be reviewed later.
+Alexandra ist ein Sprachassistent von Anfang bis Ende. Ein Benutzer spricht mit der Android-App, die Sprache wird auf dem Gerät transkribiert, der Text wird an die OpenAI-API gesendet, und die Antwort wird angezeigt und laut vorgelesen. Konversationen werden pro Benutzer gespeichert, sodass sie später nachgelesen werden können.
 
-The project covers the full stack rather than a single layer:
+Das Projekt deckt den gesamten Stack ab und nicht nur eine einzelne Schicht:
 
-| Component | Role |
+| Komponente | Rolle |
 |---|---|
-| **Android app** (Kotlin / Java) | Voice capture, conversation UI, reminders, notifications, user profile |
-| **Firebase** | User authentication and data storage |
-| **OpenAI API** | Conversational intelligence |
-| **Web dashboard** (HTML / CSS / JS) | User management and usage overview for administrators |
-| **GitHub Actions** | Automated lint, test, build and signed APK releases |
+| **Android-App** (Kotlin / Java) | Spracherfassung, Konversationsoberfläche, Erinnerungen, Benachrichtigungen, Benutzerprofil |
+| **Firebase** | Benutzerauthentifizierung und Datenspeicherung |
+| **OpenAI-API** | Konversationelle Intelligenz |
+| **Web-Dashboard** (HTML / CSS / JS) | Benutzerverwaltung und Nutzungsübersicht für Administratoren |
+| **GitHub Actions** | Automatisiertes Linting, Testen, Bauen und signierte APK-Releases |
 
 ---
 
-## What this project demonstrates
+## Was dieses Projekt zeigt
 
-For anyone reviewing this repository, here is what it shows in practice:
+Für alle, die dieses Repository ansehen, zeigt es in der Praxis Folgendes:
 
-- **Native Android development** with Kotlin and Java, including runtime permissions, speech recognition and text-to-speech
-- **Third-party API integration** with asynchronous calls that never block the UI thread
-- **Authentication and persistence** with Firebase
-- **Full-stack scope**: a mobile client *and* an administration web interface
-- **Engineering discipline**: CI on every push, signed and versioned releases, dependency updates through Dependabot, secrets kept out of version control
-- **Honest technical judgement**: known limitations and trade-offs are documented in [Security](#security) and [Roadmap](#roadmap), not hidden
+- **Native Android-Entwicklung** mit Kotlin und Java, einschließlich Laufzeitberechtigungen, Spracherkennung und Text-to-Speech
+- **Integration von Drittanbieter-APIs** mit asynchronen Aufrufen, die den UI-Thread nie blockieren
+- **Authentifizierung und Persistenz** mit Firebase
+- **Full-Stack-Umfang**: ein mobiler Client *und* eine Web-Oberfläche zur Administration
+- **Ingenieurmäßige Sorgfalt**: CI bei jedem Push, signierte und versionierte Releases, Abhängigkeits-Updates über Dependabot, Geheimnisse außerhalb der Versionskontrolle
+- **Ehrliche technische Einschätzung**: Bekannte Einschränkungen und Kompromisse sind unter [Sicherheit](#sicherheit) und [Roadmap](#roadmap) dokumentiert und werden nicht verschwiegen
 
 ---
 
-## Features
+## Funktionen
 
-### Mobile application
+### Mobile Anwendung
 
-- **Voice recognition** — hands-free interaction using Android's `SpeechRecognizer`
-- **AI conversation** — responses generated through the OpenAI API
-- **Spoken answers** — replies read aloud with Android text-to-speech
-- **Conversation history** — past exchanges stored per user
-- **Reminders and tasks** — create and manage reminders by voice
-- **Smart notifications** — alerts delivered at the right moment
-- **Authentication** — sign up, log in, and a profile screen
-- **Permission flow** — a dedicated screen explaining and requesting microphone access
+- **Spracherkennung** — freihändige Interaktion mit dem `SpeechRecognizer` von Android
+- **KI-Konversation** — Antworten, die über die OpenAI-API generiert werden
+- **Gesprochene Antworten** — Antworten werden mit dem Text-to-Speech von Android vorgelesen
+- **Konversationsverlauf** — frühere Gespräche werden pro Benutzer gespeichert
+- **Erinnerungen und Aufgaben** — Erinnerungen per Sprache erstellen und verwalten
+- **Intelligente Benachrichtigungen** — Hinweise zum richtigen Zeitpunkt
+- **Authentifizierung** — Registrierung, Anmeldung und ein Profilbildschirm
+- **Berechtigungsablauf** — ein eigener Bildschirm, der den Zugriff auf das Mikrofon erklärt und anfordert
 
-### Web dashboard
+### Web-Dashboard
 
-- **User management** — add, edit and delete users
-- **Statistics** — app usage overview
-- **Secure login** — protected administrator access
-- **Activity log** — traceability of user actions
+- **Benutzerverwaltung** — Benutzer hinzufügen, bearbeiten und löschen
+- **Statistiken** — Übersicht über die App-Nutzung
+- **Sichere Anmeldung** — geschützter Administratorzugang
+- **Aktivitätsprotokoll** — Nachvollziehbarkeit der Benutzeraktionen
 
 ---
 
 ## Screenshots
 
-### Mobile application
+### Mobile Anwendung
 
 <table>
   <tr>
-    <td align="center"><img src="screenshots/App/home.jpeg" width="200" alt="Home" /><br /><sub>Home</sub></td>
-    <td align="center"><img src="screenshots/App/histories.jpeg" width="200" alt="History" /><br /><sub>History</sub></td>
-    <td align="center"><img src="screenshots/App/profile.jpeg" width="200" alt="Profile" /><br /><sub>Profile</sub></td>
+    <td align="center"><img src="screenshots/App/home.jpeg" width="200" alt="Startseite" /><br /><sub>Startseite</sub></td>
+    <td align="center"><img src="screenshots/App/histories.jpeg" width="200" alt="Verlauf" /><br /><sub>Verlauf</sub></td>
+    <td align="center"><img src="screenshots/App/profile.jpeg" width="200" alt="Profil" /><br /><sub>Profil</sub></td>
   </tr>
   <tr>
-    <td align="center"><img src="screenshots/App/login.jpeg" width="200" alt="Login" /><br /><sub>Login</sub></td>
-    <td align="center"><img src="screenshots/App/register.jpeg" width="200" alt="Sign up" /><br /><sub>Sign up</sub></td>
-    <td align="center"><img src="screenshots/App/permissions.jpeg" width="200" alt="Permissions" /><br /><sub>Permissions</sub></td>
+    <td align="center"><img src="screenshots/App/login.jpeg" width="200" alt="Anmeldung" /><br /><sub>Anmeldung</sub></td>
+    <td align="center"><img src="screenshots/App/register.jpeg" width="200" alt="Registrierung" /><br /><sub>Registrierung</sub></td>
+    <td align="center"><img src="screenshots/App/permissions.jpeg" width="200" alt="Berechtigungen" /><br /><sub>Berechtigungen</sub></td>
   </tr>
 </table>
 
-### Web dashboard
+### Web-Dashboard
 
-| Admin | User | Login |
+| Admin | Benutzer | Anmeldung |
 |---|---|---|
-| ![Admin dashboard](screenshots/%20dashboard/admin.jpeg) | ![User dashboard](screenshots/%20dashboard/user.png) | ![Dashboard login](screenshots/%20dashboard/login.jpeg) |
+| ![Admin-Dashboard](screenshots/%20dashboard/admin.jpeg) | ![Benutzer-Dashboard](screenshots/%20dashboard/user.png) | ![Dashboard-Anmeldung](screenshots/%20dashboard/login.jpeg) |
 
 ---
 
-## Architecture
+## Architektur
 
-### System overview
+### Systemübersicht
 
 ```mermaid
 flowchart LR
-    U([User]) -->|voice| A[Android app<br/>Kotlin / Java]
-    A -->|auth, history, reminders| F[(Firebase)]
-    A -->|prompt| O[OpenAI API]
-    O -->|response| A
-    ADM([Administrator]) --> D[Web dashboard<br/>HTML / CSS / JS]
-    D -->|users, stats, logs| F
+    U([Benutzer]) -->|Sprache| A[Android-App<br/>Kotlin / Java]
+    A -->|Authentifizierung, Verlauf, Erinnerungen| F[(Firebase)]
+    A -->|Prompt| O[OpenAI-API]
+    O -->|Antwort| A
+    ADM([Administrator]) --> D[Web-Dashboard<br/>HTML / CSS / JS]
+    D -->|Benutzer, Statistiken, Protokolle| F
 ```
 
-### Voice interaction flow
+### Ablauf der Sprachinteraktion
 
 ```mermaid
 sequenceDiagram
-    actor U as User
-    participant A as Android app
+    actor U as Benutzer
+    participant A as Android-App
     participant S as SpeechRecognizer
-    participant O as OpenAI API
+    participant O as OpenAI-API
     participant F as Firebase
     participant T as TextToSpeech
 
-    U->>A: Speaks
-    A->>S: Start listening
-    S-->>A: Transcribed text
-    A->>O: Request (asynchronous)
-    Note over A: UI shows a "thinking" state
-    O-->>A: Generated response
-    A->>F: Save the exchange to the history
-    A->>T: Read the response aloud
-    A-->>U: Display the response
+    U->>A: Spricht
+    A->>S: Zuhören starten
+    S-->>A: Transkribierter Text
+    A->>O: Anfrage (asynchron)
+    Note over A: Die Oberfläche zeigt den Zustand „Denkt nach"
+    O-->>A: Generierte Antwort
+    A->>F: Gespräch im Verlauf speichern
+    A->>T: Antwort vorlesen
+    A-->>U: Antwort anzeigen
 ```
 
-### Delivery pipeline
+### Auslieferungs-Pipeline
 
 ```mermaid
 flowchart LR
     C[git push / PR] --> L[Lint]
-    L --> T[Unit tests]
-    T --> B[Build debug APK]
-    B --> R[Reports and APK<br/>as build artifacts]
-    G[git tag v1.x.x] --> S[Build release APK]
-    S --> SG[Sign with keystore]
+    L --> T[Unit-Tests]
+    T --> B[Debug-APK bauen]
+    B --> R[Berichte und APK<br/>als Build-Artefakte]
+    G[git tag v1.x.x] --> S[Release-APK bauen]
+    S --> SG[Mit Keystore signieren]
     SG --> P[GitHub Release<br/>APK + SHA-256]
 ```
 
 ---
 
-## Tech Stack
+## Tech-Stack
 
-| Layer | Technology | Purpose |
+| Schicht | Technologie | Zweck |
 |---|---|---|
-| Mobile | Kotlin, Java | Main application; Java kept for legacy modules |
-| Voice | Android `SpeechRecognizer`, `TextToSpeech` | On-device speech-to-text and text-to-speech |
-| AI | OpenAI API | Conversational responses |
-| Backend | Firebase Authentication, Firebase database | Users, sessions, history |
-| Dashboard | HTML, CSS, JavaScript | Administration interface |
-| Build | Gradle (Kotlin DSL) | Build and dependency management |
-| CI/CD | GitHub Actions, Dependabot | Automated checks, releases, dependency updates |
+| Mobil | Kotlin, Java | Hauptanwendung; Java für Legacy-Module beibehalten |
+| Sprache | Android `SpeechRecognizer`, `TextToSpeech` | Sprache-zu-Text und Text-zu-Sprache auf dem Gerät |
+| KI | OpenAI-API | Konversationelle Antworten |
+| Backend | Firebase Authentication, Firebase-Datenbank | Benutzer, Sitzungen, Verlauf |
+| Dashboard | HTML, CSS, JavaScript | Administrationsoberfläche |
+| Build | Gradle (Kotlin DSL) | Build- und Abhängigkeitsverwaltung |
+| CI/CD | GitHub Actions, Dependabot | Automatisierte Prüfungen, Releases, Abhängigkeits-Updates |
 
 ---
 
-## Getting Started
+## Erste Schritte
 
-### Prerequisites
+### Voraussetzungen
 
-- **Android Studio** — recent stable version
+- **Android Studio** — aktuelle stabile Version
 - **JDK 17**
-- A **Firebase** project (free Spark plan is enough)
-- An **OpenAI API key**
+- Ein **Firebase**-Projekt (der kostenlose Spark-Tarif genügt)
+- Ein **OpenAI-API-Schlüssel**
 
-### 1. Clone the repository
+### 1. Repository klonen
 
 ```bash
 git clone https://github.com/El-Tousy/alexandra-voice-assistant.git
 cd alexandra-voice-assistant
 ```
 
-### 2. Configure Firebase
+### 2. Firebase konfigurieren
 
-1. Create a project in the [Firebase console](https://console.firebase.google.com/).
-2. Add an Android app using the package name found in `android_studio_codes/app/build.gradle.kts` (`applicationId`).
-4. Download `google-services.json` and place it in:
+1. Erstelle ein Projekt in der [Firebase-Konsole](https://console.firebase.google.com/).
+2. Füge eine Android-App mit dem Paketnamen hinzu, der in `android_studio_codes/app/build.gradle.kts` (`applicationId`) steht.
+4. Lade `google-services.json` herunter und lege sie hier ab:
 
    ```
    android_studio_codes/app/google-services.json
    ```
 
-   This file is git-ignored and must never be committed.
+   Diese Datei wird von Git ignoriert und darf niemals committet werden.
 
-### 3. Add your OpenAI key
+### 3. Eigenen OpenAI-Schlüssel hinzufügen
 
-Add the key to `android_studio_codes/local.properties` (also git-ignored):
+Füge den Schlüssel in `android_studio_codes/local.properties` ein (ebenfalls von Git ignoriert):
 
 ```properties
 OPENAI_API_KEY=sk-your-key-here
 ```
 
 
-### 4. Run the app
+### 4. App ausführen
 
-Open `android_studio_codes/` in Android Studio, let Gradle sync, then press **Run**. Or from the command line:
+Öffne `android_studio_codes/` in Android Studio, lasse Gradle synchronisieren und drücke dann auf **Run**. Oder über die Kommandozeile:
 
 ```bash
 cd android_studio_codes
 ./gradlew installDebug
 ```
 
-On first launch, the app asks for microphone permission.
+Beim ersten Start fragt die App nach der Mikrofonberechtigung.
 
-### 5. Run the dashboard (optional)
+### 5. Dashboard ausführen (optional)
 
-The dashboard is static. From the repository root:
+Das Dashboard ist statisch. Vom Stammverzeichnis des Repositorys aus:
 
 ```bash
 npx serve dashboard_pages
 ```
 
-Then open `http://localhost:3000/login.html`.
-### Try it without building
+Öffne anschließend `http://localhost:3000/login.html`.
+### Ausprobieren ohne Build
 
-Download the latest signed APK from the [Releases page](https://github.com/El-Tousy/alexandra-voice-assistant/releases/latest) and verify its integrity:
+Lade die neueste signierte APK von der [Releases-Seite](https://github.com/El-Tousy/alexandra-voice-assistant/releases/latest) herunter und überprüfe ihre Integrität:
 
 ```bash
 sha256sum -c alexandra-vX.Y.Z.apk.sha256
@@ -253,19 +253,19 @@ sha256sum -c alexandra-vX.Y.Z.apk.sha256
 
 ---
 
-## Configuration
+## Konfiguration
 
-Nothing sensitive is stored in this repository.
+In diesem Repository wird nichts Sensibles gespeichert.
 
-| Item | Purpose | Location | Committed |
+| Element | Zweck | Ort | Committet |
 |---|---|---|---|
-| `google-services.json` | Firebase project configuration | `android_studio_codes/app/` | No |
-| `OPENAI_API_KEY` | OpenAI authentication | `android_studio_codes/local.properties` | No |
-| Release keystore | Signs the release APK | GitHub Actions secret | No |
+| `google-services.json` | Firebase-Projektkonfiguration | `android_studio_codes/app/` | Nein |
+| `OPENAI_API_KEY` | OpenAI-Authentifizierung | `android_studio_codes/local.properties` | Nein |
+| Release-Keystore | Signiert die Release-APK | GitHub-Actions-Secret | Nein |
 
 ---
 
-### Publishing a release
+### Ein Release veröffentlichen
 
 ```bash
 git tag v1.0.0
@@ -273,63 +273,63 @@ git push origin v1.0.0
 ```
 
 <details>
-<summary><b>One-time setup: signing secrets</b></summary>
+<summary><b>Einmalige Einrichtung: Signatur-Secrets</b></summary>
 
-Generate a keystore (keep it outside the repository and back it up — losing it means you can never update the app under the same signature):
+Erzeuge einen Keystore (bewahre ihn außerhalb des Repositorys auf und sichere ihn — geht er verloren, kannst du die App nie wieder mit derselben Signatur aktualisieren):
 
 ```bash
 keytool -genkeypair -v -keystore release.keystore -alias alexandra \
   -keyalg RSA -keysize 2048 -validity 10000
 ```
 
-Encode it and add four secrets under **Settings → Secrets and variables → Actions**:
+Kodiere ihn und füge vier Secrets unter **Settings → Secrets and variables → Actions** hinzu:
 
 ```bash
 base64 -w0 release.keystore
 ```
 
-| Secret | Value |
+| Secret | Wert |
 |---|---|
-| `KEYSTORE_BASE64` | Output of the command above |
-| `KEYSTORE_PASSWORD` | Keystore password |
+| `KEYSTORE_BASE64` | Ausgabe des obigen Befehls |
+| `KEYSTORE_PASSWORD` | Keystore-Passwort |
 | `KEY_ALIAS` | `alexandra` |
-| `KEY_PASSWORD` | Key password |
+| `KEY_PASSWORD` | Schlüsselpasswort |
 
 </details>
 
 ---
 
-## Testing
+## Tests
 
 ```bash
 cd android_studio_codes
-./gradlew testDebugUnitTest   # unit tests
-./gradlew lintDebug           # static analysis
+./gradlew testDebugUnitTest   # Unit-Tests
+./gradlew lintDebug           # Statische Analyse
 ```
-Both commands run automatically on every push and pull request.
+Beide Befehle laufen bei jedem Push und jedem Pull Request automatisch.
 
 ---
 
-## Project Structure
+## Projektstruktur
 
 ```
 alexandra-voice-assistant/
 │
-├── android_studio_codes/        # Android project
+├── android_studio_codes/        # Android-Projekt
 │   ├── app/
 │   │   └── src/main/
-│   │       ├── java/            # Kotlin and Java sources
-│   │       ├── res/             # Layouts, drawables, colors, menus, values
+│   │       ├── java/            # Kotlin- und Java-Quellcode
+│   │       ├── res/             # Layouts, Drawables, Farben, Menüs, Werte
 │   │       └── AndroidManifest.xml
 │   ├── build.gradle.kts
 │   └── settings.gradle.kts
 │
-├── dashboard_pages/             # Administration web interface
+├── dashboard_pages/             # Web-Oberfläche zur Administration
 │   ├── dashboard-admin.html
 │   ├── dashboard-user.html
 │   └── login.html
 │
-├── docs/                        # Demo GIF 
+├── docs/                        # Demo-GIF 
 ├── screenshots/
 │   ├── app/
 │   └── dashboard/
@@ -340,67 +340,67 @@ alexandra-voice-assistant/
 
 ---
 
-## Security
+## Sicherheit
 
-- **Secrets stay out of Git.** The OpenAI key and `google-services.json` are excluded from the repository and provided locally or through CI secrets.
-- **Signed, verifiable releases.** Release APKs are signed with a private keystore stored as an encrypted GitHub secret, and published with a SHA-256 checksum.
-- **Least privilege in CI.** Workflows request only the permissions they need.
+- **Geheimnisse bleiben aus Git heraus.** Der OpenAI-Schlüssel und `google-services.json` sind vom Repository ausgeschlossen und werden lokal oder über CI-Secrets bereitgestellt.
+- **Signierte, überprüfbare Releases.** Release-APKs werden mit einem privaten Keystore signiert, der als verschlüsseltes GitHub-Secret gespeichert ist, und mit einer SHA-256-Prüfsumme veröffentlicht.
+- **Minimale Rechte in der CI.** Workflows fordern nur die Berechtigungen an, die sie benötigen.
 
-### Known limitation: the OpenAI key lives in the client
+### Bekannte Einschränkung: Der OpenAI-Schlüssel liegt im Client
 
-A key embedded in an Android app can be extracted by anyone who unpacks the APK. That is acceptable for local development, but it is **not** acceptable for a public build: publicly distributed APKs are therefore built **without** a real key.
+Ein in eine Android-App eingebetteter Schlüssel kann von jedem extrahiert werden, der die APK entpackt. Für die lokale Entwicklung ist das akzeptabel, für einen öffentlichen Build jedoch **nicht**: Öffentlich verteilte APKs werden deshalb **ohne** echten Schlüssel gebaut.
 
-The production-grade design is to keep the key on a server and have the app call that server instead. This is on the [roadmap](#roadmap): a Firebase Cloud Function acting as an authenticated proxy, so the key never leaves the backend and requests can be rate-limited per user.
+Das Design für den Produktivbetrieb sieht vor, den Schlüssel auf einem Server zu halten und die App stattdessen diesen Server aufrufen zu lassen. Das steht auf der [Roadmap](#roadmap): eine Firebase Cloud Function als authentifizierter Proxy, sodass der Schlüssel das Backend nie verlässt und Anfragen pro Benutzer begrenzt werden können.
 
 ---
 
-## Technical Challenges and Learnings
+## Technische Herausforderungen und Erkenntnisse
 
-- **Real-time coordination.** Continuous speech recognition had to coexist with network calls to the OpenAI API without ever blocking the UI thread. This required a clear separation between the listening state, the waiting state and the speaking state.
+- **Echtzeit-Koordination.** Die kontinuierliche Spracherkennung musste neben den Netzwerkaufrufen an die OpenAI-API laufen, ohne jemals den UI-Thread zu blockieren. Dafür war eine klare Trennung zwischen Zuhör-, Warte- und Sprechzustand nötig.
 
-- **API latency.** A language-model call takes seconds. Without feedback, users assume the app has frozen, so the UI shows an explicit "thinking" state until the response arrives.
+- **API-Latenz.** Ein Aufruf an ein Sprachmodell dauert Sekunden. Ohne Rückmeldung nehmen Benutzer an, dass die App eingefroren ist, weshalb die Oberfläche bis zum Eintreffen der Antwort einen ausdrücklichen Zustand „Denkt nach" anzeigt.
 
-- **Two languages in one codebase.** Kotlin and Java coexist, with legacy modules alongside newer code. Keeping interoperability clean (nullability, callbacks, coroutines versus threads) was a practical lesson in incremental migration.
+- **Zwei Sprachen in einer Codebasis.** Kotlin und Java koexistieren, mit Legacy-Modulen neben neuerem Code. Die Interoperabilität sauber zu halten (Nullability, Callbacks, Coroutines gegenüber Threads) war eine praktische Lektion in schrittweiser Migration.
 
-- **Secret management.** Keeping the OpenAI key and Firebase configuration out of the repository shaped both the local setup and the CI design — and led to identifying the client-side key limitation described above.
+- **Verwaltung von Geheimnissen.** Den OpenAI-Schlüssel und die Firebase-Konfiguration aus dem Repository herauszuhalten, hat sowohl die lokale Einrichtung als auch das CI-Design geprägt — und dazu geführt, die oben beschriebene Einschränkung des clientseitigen Schlüssels zu erkennen.
 
-- **Automating delivery.** Building the CI/CD pipeline meant making the build reproducible without secrets, and working out how to sign an APK safely from a CI runner.
+- **Automatisierung der Auslieferung.** Die CI/CD-Pipeline aufzubauen bedeutete, den Build ohne Geheimnisse reproduzierbar zu machen und herauszufinden, wie man eine APK sicher von einem CI-Runner aus signiert.
 
 ---
 
 ## Roadmap
 
-- [x] Voice recognition and AI conversation
-- [x] Firebase authentication and history
-- [x] Web administration dashboard
-- [x] CI: lint, test, build on every push
-- [x] Signed APK releases on version tags
-- [ ] Move OpenAI calls behind a Firebase Cloud Function
-- [ ] Unit tests for the conversation and reminder logic
-- [ ] Deploy the dashboard (Firebase Hosting or GitHub Pages) with a live link
-- [ ] Complete the migration of legacy Java modules to Kotlin
-- [ ] Multilingual voice support (Arabic, French, English)
-- [ ] Offline handling and error recovery when the network drops
+- [x] Spracherkennung und KI-Konversation
+- [x] Firebase-Authentifizierung und Verlauf
+- [x] Web-Dashboard zur Administration
+- [x] CI: Lint, Test, Build bei jedem Push
+- [x] Signierte APK-Releases bei Versions-Tags
+- [ ] OpenAI-Aufrufe hinter eine Firebase Cloud Function verlagern
+- [ ] Unit-Tests für die Konversations- und Erinnerungslogik
+- [ ] Das Dashboard bereitstellen (Firebase Hosting oder GitHub Pages) mit Live-Link
+- [ ] Migration der Legacy-Java-Module zu Kotlin abschließen
+- [ ] Mehrsprachige Sprachunterstützung (Arabisch, Französisch, Englisch)
+- [ ] Offline-Behandlung und Fehlerwiederherstellung bei Netzwerkausfall
 
 ---
 
-## Author
+## Autor
 
-**El_Tousy** — Computer Science student
+**El_Tousy** — Informatikstudentin
 
 [![GitHub](https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white)](https://github.com/El-Tousy)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:leilaeltousy@gmail.com)
 
 ---
 
-## License
+## Lizenz
 
-Distributed under the MIT License. See [LICENSE](LICENSE) for details.
+Verbreitet unter der MIT-Lizenz. Siehe [LICENSE](LICENSE) für Details.
 
 ---
 
 <div align="center">
 
-⭐ If you find this project useful, consider leaving a star.
+⭐ Wenn dir dieses Projekt nützlich erscheint, hinterlasse gerne einen Stern.
 
 </div>
