@@ -1,6 +1,6 @@
 <div align="center">
 
-# Alexandra — KI-Sprachassistent
+# Alexandra — KI-Sprachassistent   
 
 **Ein nativer Android-Sprachassistent, der zuhört, mit der OpenAI-API nachdenkt und laut antwortet — ergänzt durch ein Web-Dashboard zur Benutzerverwaltung.**
 
