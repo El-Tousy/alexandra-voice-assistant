@@ -4,7 +4,7 @@
 
 **Ein nativer Android-Sprachassistent, der zuhört, mit der OpenAI-API nachdenkt und laut antwortet — ergänzt durch ein Web-Dashboard zur Benutzerverwaltung.**
 
-Abschlussprojekt (PFE) · 2026
+Abschlussprojekt (PFE) · 2026 
  
 [**🎥 Video-Demo**](https://github.com/El-Tousy/alexandra-voice-assistant/tree/main/Video%20Demo) · [**📸 Screenshots**](#screenshots) · [**🏗️ Architektur**](#architektur)
   
